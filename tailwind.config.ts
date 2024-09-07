@@ -66,6 +66,13 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        WaPurple: "#A25AEE",
+        WaGreen: "#10B25D",
+        WaBlue: "#1B9FC8",
+        WaBrown: "#5D5F0B",
+        WaBlack: "#060606",
+        WaWhite: "#FDFEFD",
+        WaGray: "#98989D",
       },
     },
   },
