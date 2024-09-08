@@ -10,7 +10,7 @@ export interface User {
   lastLogin?: Date;
   twoFactorSecret?: string;
   twoFactorEnabled: boolean;
-  resetPasswordOTP: String;
+  resetPasswordOTP: string;
   resetPasswordOTPExpires: Date;
   isDeleted: boolean;
   deletedAt?: Date;

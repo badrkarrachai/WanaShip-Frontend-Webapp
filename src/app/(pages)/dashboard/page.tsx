@@ -1,12 +1,6 @@
 import React from "react";
 import { Card, CardBody, CardFooter } from "@nextui-org/react";
-import {
-  CalendarFold,
-  LucideIcon,
-  Search,
-  TrendingDown,
-  TrendingUp,
-} from "lucide-react";
+import { CalendarFold, TrendingDown, TrendingUp } from "lucide-react";
 
 const Dashboard = () => {
   function getGreeting() {
@@ -51,7 +45,6 @@ const Dashboard = () => {
             title="Pending Shipments"
             value="16"
             description="From Jan 01, 2024 - March 30, 2024"
-            icon={Search}
             percentType={true}
             percentValue="2,15%"
           />
@@ -59,7 +52,6 @@ const Dashboard = () => {
             title="Parcels in Shipping"
             value="10"
             description="From Jan 01, 2024 - March 30, 2024"
-            icon={Search}
             percentType={true}
             percentValue="2,15%"
           />
@@ -67,7 +59,6 @@ const Dashboard = () => {
             title="Total Parcels"
             value="230"
             description="From Jan 01, 2024 - March 30, 2024"
-            icon={Search}
             percentType={true}
             percentValue="2,15%"
           />
@@ -75,7 +66,6 @@ const Dashboard = () => {
             title="Total Parcles Prices"
             value="$2480.32"
             description="From Jan 01, 2024 - March 30, 2024"
-            icon={Search}
             percentType={false}
             percentValue="2,15%"
           />
@@ -91,16 +81,14 @@ interface DashboardInfoCardProps {
   title: string;
   value: string;
   description: string;
-  icon: LucideIcon;
   percentType: boolean;
-  percentValue: String;
+  percentValue: string;
 }
 
 const DashboardInfoCard = ({
   title,
   value,
   description,
-  icon,
   percentType,
   percentValue,
 }: DashboardInfoCardProps) => {
