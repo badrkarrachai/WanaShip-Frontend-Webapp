@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 import { createThemes } from "tw-colors";
 import colors from "tailwindcss/colors";
+import { nextui } from "@nextui-org/react";
 
 const baseColors = [
   "gray",
@@ -54,19 +55,34 @@ const themes = {
 };
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
+      backdropBlur: {
+        lg: "40px",
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        WaPurple: "#A158EE",
+        WaGreen: "#10B25D",
+        WaBlue: "#1B9FC8",
+        WaBrown: "#5D5F0B",
+        WaBlack: "#060606",
+        WaWhite: "#FDFEFD",
+        WaGray: "#98989D",
+        WaBorderDark: "#464663",
+        WaBackground: "#FBFAF8",
+        WaBackgroundDark: "#0D0F1B",
       },
     },
   },
-  plugins: [createThemes(themes)],
+  plugins: [createThemes(themes), nextui()],
 };
 export default config;
