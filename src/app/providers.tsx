@@ -6,6 +6,7 @@ import StoreProvider, { useAppSelector } from "./redux";
 import { NextUIProvider } from "@nextui-org/react";
 import Sidebar from "./components/layout/Sidebar";
 import Navbar from "./components/layout/Navbar";
+import Background from "./components/layout/Background";
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const isSidebarCollapsed = useAppSelector(
@@ -16,7 +17,9 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add("dark");
+      document.documentElement.classList.remove("light");
     } else {
+      document.documentElement.classList.remove("dark");
       document.documentElement.classList.add("light");
     }
   });
@@ -28,13 +31,16 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       } flex bg-gray-50 text-gray-900 w-full min-h-screen`}
     >
       <Sidebar />
-      <main
-        className={`flex flex-col w-full h-full py-7 px-9 bg-gray-50 ${
-          isSidebarCollapsed ? "md:pl-24" : "md:pl-72"
-        }`}
-      >
-        <Navbar />
-        {children}
+      <main className={`flex flex-col w-full h-full z-10 bg-gray-50 `}>
+        <Background />
+        <div
+          className={`flex flex-col min-h-screen z-10 transition-all duration-300 px-5 sm:px-10 pt-7 ${
+            isSidebarCollapsed ? "md:ml-[4rem]" : "md:ml-[18rem]"
+          }`}
+        >
+          <Navbar />
+          {children}
+        </div>
       </main>
     </div>
   );

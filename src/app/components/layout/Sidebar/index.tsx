@@ -40,20 +40,24 @@ const SidebarLink = ({
     <Link href={href}>
       <div
         className={`cursor-pointer flex items-center ${
-          isCollapsed ? "justify-center py-3 " : "justify-start px-8 py-3 mx-4 rounded-xl hover:rounded-xl"
+          isCollapsed
+            ? "justify-center py-3 "
+            : "justify-start px-8 py-3 mx-4 rounded-xl hover:rounded-xl"
         }
-         hover:bg-gray-100 gap-3 transition-colors  ${
-          isActive ? "bg-gray-200 text-black": "text-gray-800"
-        }
+         hover:bg-gray-50 dark:hover:bg-slate-700 gap-3 transition-colors  ${
+           isActive
+             ? `bg-white shadow-sm shadow-gray-200 text-grey-900 ${
+                 isCollapsed ? "border-y" : "dark:border"
+               } dark:border-WaBorderDark dark:bg-slate-50 dark:bg-opacity-10 dark:shadow-none`
+             : "text-gray-450"
+         }
       }`}
       >
-        <Icon className={`w-6 h-6 ${isActive ? "text-WaPurple" : "text-gray-600"}`} />
+        <Icon
+          className={`w-6 h-6 ${isActive ? "text-WaPurple" : "text-gray-600"}`}
+        />
 
-        <span
-          className={`${
-            isCollapsed ? "hidden" : "block"
-          } font-medium`}
-        >
+        <span className={`${isCollapsed ? "hidden" : "block"} font-medium`}>
           {label}
         </span>
       </div>
@@ -73,14 +77,14 @@ const Sidebar = () => {
 
   const sidebarClassNames = `fixed flex flex-col ${
     isSidebarCollapsed ? "w-0 md:w-16" : "w-72"
-  } bg-white transition-all duration-300 overflow-hidden h-full shadow-md z-40`;
+  } bg-white transition-all duration-300 overflow-hidden h-full shadow-md z-40 bg-opacity-40 backdrop-blur-lg border-r dark:border-WaBorderDark`;
 
   return (
     <div className={sidebarClassNames}>
       {/* TOP LOGO */}
       <div
         className={`flex gap-3 justify-between md:justify-normal items-center pt-8 ${
-          isSidebarCollapsed ? "px-5" : "px-8"
+          isSidebarCollapsed ? "px-4" : "px-8"
         }`}
       >
         <Image
@@ -88,7 +92,7 @@ const Sidebar = () => {
           alt="WanaShip-logo"
           width={30}
           height={30}
-          className="rounded w-8"
+          className="rounded"
         />
         <h1
           className={`${
@@ -108,7 +112,7 @@ const Sidebar = () => {
 
       {/* LINKS */}
       <div className="flex-grow mt-12 gap-3 flex flex-col">
-      <SidebarLink
+        <SidebarLink
           href="/dashboard"
           icon={LayoutDashboard}
           label="Dashboard"
@@ -133,49 +137,59 @@ const Sidebar = () => {
           isCollapsed={isSidebarCollapsed}
         />
         <SidebarLink
+          href="/payments"
+          icon={CircleDollarSign}
+          label="Payments"
+          isCollapsed={isSidebarCollapsed}
+        />
+        <SidebarLink
           href="/settings"
           icon={Settings}
           label="Settings"
           isCollapsed={isSidebarCollapsed}
         />
         <SidebarLink
-          href="/payments"
-          icon={CircleDollarSign}
-          label="Payments"
-          isCollapsed={isSidebarCollapsed}
-        /> 
-        <SidebarLink
           href="/support"
           icon={Headset}
           label="Support"
           isCollapsed={isSidebarCollapsed}
-        /> 
+        />
       </div>
 
       {/* FOOTER */}
       <Image
-          src="https://imagizer.imageshack.com/img922/2748/4JY9zX.png"
-          alt="WanaShip-logo"
-          width={32}
-          height={32}
-          className={`${isSidebarCollapsed ? "block" : "hidden"} rounded-full mb-10 mx-4`}
-        />
-      <div className={`${isSidebarCollapsed ? "hidden" : "block"} mb-10 flex p-3 shadow-md justify-between mx-4 rounded-xl items-center`}>
+        src="https://imagizer.imageshack.com/img922/4831/rqmbNX.jpg"
+        alt="WanaShip-logo"
+        width={32}
+        height={32}
+        className={`${
+          isSidebarCollapsed ? "block" : "hidden"
+        } rounded-full mb-10 mx-4 cursor-pointer`}
+      />
+      <div
+        className={`${
+          isSidebarCollapsed ? "hidden" : "block"
+        } bg-white  mb-10 cursor-pointer flex p-3 shadow-md justify-between mx-4 rounded-xl items-center light:border-none dark:border dark:border-WaBorderDark dark:bg-slate-50 dark:bg-opacity-10`}
+      >
         {/* <p className="text-center text-xs text-gray-500">
           &copy; {new Date().getFullYear()} WanaShip
         </p> */}
         <Image
-          src="https://imagizer.imageshack.com/img922/2748/4JY9zX.png"
+          src="https://imagizer.imageshack.com/img922/4831/rqmbNX.jpg"
           alt="WanaShip-logo"
           width={30}
           height={30}
           className="rounded-full"
         />
         <div className="flex flex-col">
-          <div className="font-semibold text-xs">Hanane Bouzaga</div>
-          <div className="text-[0.65rem]">Hananebouzaga38@gmail.com</div>
+          <div className="font-semibold text-sm truncate max-w-40">
+            Badr Karrachai
+          </div>
+          <div className="text-[0.75rem] truncate max-w-40">
+            Badrkarrachai1999@gmail.com
+          </div>
         </div>
-        <ChevronRight size={16}/>
+        <ChevronRight size={16} />
       </div>
     </div>
   );
