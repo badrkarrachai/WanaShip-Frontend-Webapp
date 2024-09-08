@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardBody, CardFooter, Divider } from "@nextui-org/react";
+import { Card, CardBody, CardFooter } from "@nextui-org/react";
 import {
   CalendarFold,
   LucideIcon,
@@ -7,9 +7,8 @@ import {
   TrendingDown,
   TrendingUp,
 } from "lucide-react";
-type Props = {};
 
-const Dashboard = (props: Props) => {
+const Dashboard = () => {
   function getGreeting() {
     const currentTime = new Date();
     const currentHour = currentTime.getHours();
