@@ -54,5 +54,9 @@ body,
 }
 
 .clickable-dark {
-  @apply dark:border dark:border-WaBorderDark dark:backdrop-blur-lg dark:bg-opacity-60 dark:bg-WaBackgroundDark dark:hover:bg-slate-50 dark:hover:bg-opacity-10;
+  @apply border transition-colors dark:border-WaBorderDark dark:backdrop-blur-lg dark:bg-opacity-60 dark:bg-WaBackgroundDark dark:hover:bg-slate-50 dark:hover:bg-opacity-10;
+}
+
+.cards-dark {
+  @apply shadow-none transition-colors border dark:border-WaBorderDark dark:bg-opacity-35 backdrop-blur-lg dark:bg-[#303656];
 }

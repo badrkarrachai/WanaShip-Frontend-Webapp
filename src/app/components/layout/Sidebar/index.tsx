@@ -13,6 +13,7 @@ import {
   Menu,
   Settings,
   User,
+  X,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -76,8 +77,8 @@ const Sidebar = () => {
   };
 
   const sidebarClassNames = `fixed flex flex-col ${
-    isSidebarCollapsed ? "w-0 md:w-16" : "w-72"
-  } bg-white transition-all duration-300 overflow-hidden h-full shadow-md z-40 bg-opacity-40 backdrop-blur-lg border-r dark:border-WaBorderDark`;
+    isSidebarCollapsed ? "w-0 ml-[-1px] md:w-16" : "w-72"
+  } bg-white transition-all duration-300 overflow-hidden h-full shadow-md z-40 bg-opacity-10 backdrop-blur-[23px] sm:backdrop-blur-lg border-r dark:border-WaBorderDark`;
 
   return (
     <div className={sidebarClassNames}>
@@ -106,7 +107,7 @@ const Sidebar = () => {
           className="md:hidden px-3 py-3 bg-gray-100 rounded-full hover:bg-blue-100"
           onClick={toggleSidebar}
         >
-          <Menu className="w-4 h-4" />
+          <X className="w-4 h-4" />
         </button>
       </div>
 

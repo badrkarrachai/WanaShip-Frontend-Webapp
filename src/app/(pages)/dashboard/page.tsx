@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, CardBody, CardFooter } from "@nextui-org/react";
 import { CalendarFold, TrendingDown, TrendingUp } from "lucide-react";
+import { AreaChartHero } from "./chart";
 
 const Dashboard = () => {
   function getGreeting() {
@@ -21,8 +22,8 @@ const Dashboard = () => {
   }
   return (
     <>
-      <div className="space-y-8">
-        <div className="flex flex-wrap items-center justify-center sm:justify-between gap-4 sm:gap-16 ">
+      <div className="space-y-8 ">
+        <div className="flex sm:my-0 my-16 flex-wrap items-center justify-center sm:justify-between gap-4 sm:gap-0">
           <div className="flex flex-col gap-4">
             <h1 className="text-4xl font-medium text-center sm:text-start">
               {getGreeting()}, Badr
@@ -32,7 +33,7 @@ const Dashboard = () => {
               payments.
             </p>
           </div>
-          <div className="flex sm:flex-row flex-row-reverse items-center gap-2 ">
+          <div className="flex sm:flex-row flex-row-reverse items-center gap-4 ">
             <p>16 May, 2024</p>
             <div className="bg-gray-200 p-3 rounded-full">
               <CalendarFold size={20} />
@@ -69,6 +70,9 @@ const Dashboard = () => {
             percentType={false}
             percentValue="2,15%"
           />
+          <div className="sm:col-span-2">
+            <AreaChartHero />
+          </div>
         </div>
       </div>
     </>
@@ -93,7 +97,7 @@ const DashboardInfoCard = ({
   percentValue,
 }: DashboardInfoCardProps) => {
   return (
-    <Card className=" flex dark:bg-opacity-40 dark:bg-[#1B223F] justify-between relative ">
+    <Card className=" flex justify-between relative cards-dark ">
       <CardBody className="p-5 flex flex-row items-start justify-between gap-4 flex-wrap">
         <div className="flex flex-col items-start gap-6">
           <h1 className="text-base font-base min-w-[10.5rem]">{title}</h1>
