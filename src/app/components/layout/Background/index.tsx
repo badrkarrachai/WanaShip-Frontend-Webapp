@@ -1,9 +1,7 @@
 import { useAppSelector } from "@/app/redux";
 import React from "react";
 
-type Props = {};
-
-const Background = (props: Props) => {
+const Background = () => {
   const isSidebarCollapsed = useAppSelector(
     (state) => state.global.isSidebarCollapsed
   );

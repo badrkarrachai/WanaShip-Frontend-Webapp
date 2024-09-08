@@ -2,9 +2,7 @@
 
 import { useAppDispatch, useAppSelector } from "@/app/redux";
 import { setIsDarkMode, setIsSidebarCollapsed } from "@/state";
-import { Bell, Menu, Moon, Search, Settings, Sun } from "lucide-react";
-// import Image from "next/image";
-import Link from "next/link";
+import { Bell, Menu, Moon, Search, Sun } from "lucide-react";
 import React from "react";
 
 const Navbar = () => {
