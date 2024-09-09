@@ -38,7 +38,7 @@ const MultiCardsInOne = ({
             fullWidth={true}
           >
             <Tab key="New Users" title="New Users">
-              <Card className="flex items-center p-4 shadow-md">
+              <Card className="flex items-center p-4 shadow-md dark:border dark:border-WaBorderDark dark:bg-slate-50 dark:bg-opacity-10">
                 <CardBody className="flex flex-col gap-4">
                   <div className="flex items-center gap-5">
                     <Image
@@ -79,7 +79,7 @@ const MultiCardsInOne = ({
                         </h2>
                       </div>
                       <div className="flex flex-row items-center gap-1">
-                        <div className="bg-[#D1FADF] rounded-full p-[0.05rem]">
+                        <div className="bg-[#D1FADF] dark:bg-opacity-85 rounded-full p-[0.05rem]">
                           <ArrowUp color="#05841A" size={16} />
                         </div>
                         <div className=" text-[#05841A] text-base">
@@ -89,12 +89,36 @@ const MultiCardsInOne = ({
                     </div>
                     <div className="flex flex-row justify-between">
                       <AvatarGroup isBordered max={4}>
-                        <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026024d"  />
-                        <Avatar src="https://i.pravatar.cc/150?u=a04258a2462d826712d" className="border-5 border-white" />
-                        <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026704d" />
-                        <Avatar src="https://i.pravatar.cc/150?u=a04258114e29026302d" />
+                        <Avatar
+                          classNames={{
+                            base: "border-3 border-white dark:border-[#303345]",
+                          }}
+                          src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
+                        />
+
+                        <Avatar
+                          classNames={{
+                            base: "border-3 border-white dark:border-[#303345]",
+                          }}
+                          src="https://i.pravatar.cc/150?u=a04258a2462d826712d"
+                        />
+                        <Avatar
+                          classNames={{
+                            base: "border-3 border-white dark:border-[#303345]",
+                          }}
+                          src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+                        />
+                        <Avatar
+                          classNames={{
+                            base: "border-3 border-white dark:border-[#303345]",
+                          }}
+                          src="https://i.pravatar.cc/150?u=a04258114e29026302d"
+                        />
                       </AvatarGroup>
-                      <Button className="rounded-full bg-gray-100 font-medium text-WaBlack flex items-center">View All<ArrowRight size={16} /></Button>
+                      <Button className="rounded-full bg-gray-100 font-medium text-WaBlack flex items-center dark:text-black dark:bg-slate-50 dark:bg-opacity-60">
+                        View All
+                        <ArrowRight size={16} />
+                      </Button>
                     </div>
                   </div>
                 </CardBody>
