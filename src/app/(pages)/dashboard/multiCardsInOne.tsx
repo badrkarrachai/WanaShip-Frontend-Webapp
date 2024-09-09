@@ -103,37 +103,7 @@ const MultiCardsInOne = ({
             <Tab key="Online Sales" title="Online Sales">
               <Card className="flex gap-2 items-center shadow-md">
                 <CardBody className="flex flex-col  gap-10 justify-center items-center">
-                  <div>
-                    <div className="flex items-center gap-5">
-                      <Image
-                        src="https://imagizer.imageshack.com/img922/4831/rqmbNX.jpg"
-                        alt="WanaShip-logo"
-                        width={90}
-                        height={90}
-                        className="rounded-full"
-                      />
-                      <div className="flex flex-col gap-2">
-                        <div>
-                          <span className="text-gray-500">TOP RESHIPPER</span>
-                          <h2>{name}</h2>
-                        </div>
-                        <div>
-                          <span>WEEKLY PURCHASE</span>
-                          <h2>{weeklyShippement}</h2>
-                        </div>
-                      </div>
-                    </div>
-                    <hr className="w-full h-0  dark:border-WaBorderDark " />
-                    <div className="flex">
-                      <div className="flex flex-col">
-                        <span className="text-gray-500">TOTAL NEW USERS</span>
-                        <h2>{totalShippement}</h2>
-                      </div>
-                      <div className="flex flex-col">
-                        <div>{percent}</div>
-                      </div>
-                    </div>
-                  </div>
+                  <div></div>
                 </CardBody>
               </Card>
             </Tab>
