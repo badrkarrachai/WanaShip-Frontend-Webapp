@@ -43,7 +43,11 @@ const Dashboard = () => {
           </div>
         </div>
         <hr className="w-full h-0  dark:border-WaBorderDark " />
-        <DashboardAlert title="Parcels in Shipping" description="We have observed a decline on your shipments. Please check your shipments and contact us if you have any questions." iconAlert={BellRing}/>
+        <DashboardAlert
+          title="Parcels in Shipping"
+          description="We have observed a decline on your shipments. Please check your shipments and contact us if you have any questions."
+          iconAlert={BellRing}
+        />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 xl:gap-8 pb-4 ">
           <DashboardInfoCard
             title="Pending Shipments"
@@ -73,10 +77,19 @@ const Dashboard = () => {
             percentType={false}
             percentValue="2,15"
           />
-          <div className="sm:col-span-2">
+
+          <div className="sm:col-span-2 h-full">
+            <MultiCardsInOne
+              title="Performance"
+              name="Badr Karrachai."
+              weeklyShippement="10 items"
+              percent="2,15%"
+              totalShippement="2,30K"
+            />
+          </div>
+          <div className="sm:col-span-2 h-full">
             <AreaChartHero />
           </div>
-          <MultiCardsInOne title="Performance" name="Badr Karrachai." weeklyShippement="10 items" percent="2,15%" totalShippement="2,30K" />
         </div>
       </div>
     </>
@@ -108,13 +121,13 @@ const DashboardInfoCard = ({
           <h1 className="text-4xl font-medium ">{value}</h1>
         </div>
         {percentType && (
-          <div className="bg-[#D1FADF] px-3 py-2 flex gap-2 rounded-lg items-center mt-2 ">
+          <div className="bg-[#D1FADF] dark:bg-opacity-85 px-3 py-2 flex gap-2 rounded-lg items-center mt-2 ">
             <TrendingUp className="text-[#05841A] w-6 h-6" />
             <p className="text-[#05841A]">{percentValue}%</p>
           </div>
         )}
         {!percentType && (
-          <div className="bg-[#FFF5F5] px-3 py-2 flex gap-2 rounded-lg items-center mt-2 ">
+          <div className="bg-[#FFF5F5] dark:bg-opacity-85 px-3 py-2 flex gap-2 rounded-lg items-center mt-2 ">
             <TrendingDown className="text-[#B70000] w-6 h-6" />
             <p className="text-[#B70000]">{percentValue}%</p>
           </div>

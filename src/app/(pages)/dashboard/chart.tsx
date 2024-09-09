@@ -68,13 +68,13 @@ const chartdata = [
 
 export const AreaChartHero = () => (
   <Card className=" flex justify-between relative cards-dark">
-    <CardBody className="p-5 flex flex-row items-start justify-between gap-4 flex-wrap">
+    <CardBody className="p-6 flex flex-row items-start justify-between gap-4 flex-wrap">
       <h1 className="text-base font-base min-w-[10.5rem]">
         Transaction activity
       </h1>
 
       <AreaChart
-        className="h-72"
+        className="h-[26.3rem]"
         data={chartdata}
         index="date"
         categories={["SolarPanels", "Inverters"]}
