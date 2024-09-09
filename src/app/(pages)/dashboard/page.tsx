@@ -1,7 +1,9 @@
 import React from "react";
 import { Card, CardBody, CardFooter } from "@nextui-org/react";
-import { CalendarFold, TrendingDown, TrendingUp } from "lucide-react";
+import { BellRing, CalendarFold, TrendingDown, TrendingUp } from "lucide-react";
 import { AreaChartHero } from "./chart";
+import DashboardAlert from "./dashboardAlert";
+import MultiCardsInOne from "./multiCardsInOne";
 
 const Dashboard = () => {
   function getGreeting() {
@@ -41,38 +43,40 @@ const Dashboard = () => {
           </div>
         </div>
         <hr className="w-full h-0  dark:border-WaBorderDark " />
+        <DashboardAlert title="Parcels in Shipping" description="We have observed a decline on your shipments. Please check your shipments and contact us if you have any questions." iconAlert={BellRing}/>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 xl:gap-8 pb-4 ">
           <DashboardInfoCard
             title="Pending Shipments"
             value="16"
             description="From Jan 01, 2024 - March 30, 2024"
             percentType={true}
-            percentValue="2,15%"
+            percentValue="2,15"
           />
           <DashboardInfoCard
             title="Parcels in Shipping"
             value="10"
             description="From Jan 01, 2024 - March 30, 2024"
             percentType={true}
-            percentValue="2,15%"
+            percentValue="2,15"
           />
           <DashboardInfoCard
             title="Total Parcels"
             value="230"
             description="From Jan 01, 2024 - March 30, 2024"
             percentType={true}
-            percentValue="2,15%"
+            percentValue="2,15"
           />
           <DashboardInfoCard
             title="Total Parcles Prices"
             value="$2480.32"
             description="From Jan 01, 2024 - March 30, 2024"
             percentType={false}
-            percentValue="2,15%"
+            percentValue="2,15"
           />
           <div className="sm:col-span-2">
             <AreaChartHero />
           </div>
+          <MultiCardsInOne title="Performance" name="Badr Karrachai." weeklyShippement="10 items" percent="2,15%" totalShippement="2,30K" />
         </div>
       </div>
     </>
@@ -100,11 +104,11 @@ const DashboardInfoCard = ({
     <Card className=" flex justify-between relative cards-dark ">
       <CardBody className="p-5 flex flex-row items-start justify-between gap-4 flex-wrap">
         <div className="flex flex-col items-start gap-6">
-          <h1 className="text-base font-base min-w-[10.5rem]">{title}</h1>
+          <h1 className="text-base font-medium min-w-[10.5rem]">{title}</h1>
           <h1 className="text-4xl font-medium ">{value}</h1>
         </div>
         {percentType && (
-          <div className="bg-[#F2FCF4] px-3 py-2 flex gap-2 rounded-lg items-center mt-2 ">
+          <div className="bg-[#D1FADF] px-3 py-2 flex gap-2 rounded-lg items-center mt-2 ">
             <TrendingUp className="text-[#05841A] w-6 h-6" />
             <p className="text-[#05841A]">{percentValue}%</p>
           </div>
