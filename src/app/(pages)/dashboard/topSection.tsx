@@ -7,7 +7,15 @@ import {
   DropdownMenu,
   DropdownTrigger,
 } from "@nextui-org/dropdown";
-import { CalendarDays, PlusCircle, Settings2 } from "lucide-react";
+import {
+  ArrowBigDown,
+  CalendarDays,
+  MapPinPlus,
+  PackagePlus,
+  PlusCircle,
+  Settings2,
+  UserRoundPlus,
+} from "lucide-react";
 import { FC } from "react";
 
 interface topSectionProps {}
@@ -50,9 +58,38 @@ const DashboardTopSection: FC<topSectionProps> = ({}) => {
               </Button>
             </DropdownTrigger>
             <DropdownMenu aria-label="Static Actions">
-              <DropdownItem key="newParcel">Expected Parcel</DropdownItem>
-              <DropdownItem key="newAddress">Address</DropdownItem>
-              <DropdownItem key="newReshipper">Reshipper</DropdownItem>
+              <DropdownItem
+                key="newParcel"
+                startContent={
+                  <PackagePlus
+                    className=" text-default-500 pointer-events-none flex-shrink-0"
+                    size={17}
+                  />
+                }
+                className="flex gap-3"
+              >
+                Expected Parcel
+              </DropdownItem>
+              <DropdownItem
+                key="newParcel"
+                startContent={
+                  <MapPinPlus
+                    className=" text-default-500 pointer-events-none flex-shrink-0"
+                    size={17}
+                  />
+                }
+                className="flex gap-3"
+              >Address</DropdownItem>
+              <DropdownItem
+                key="newParcel"
+                startContent={
+                  <UserRoundPlus
+                    className=" text-default-500 pointer-events-none flex-shrink-0"
+                    size={17}
+                  />
+                }
+                className="flex gap-3"
+              >Reshipper</DropdownItem>
             </DropdownMenu>
           </Dropdown>
           <DatePickerWithRange
