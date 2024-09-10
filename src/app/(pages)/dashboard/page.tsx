@@ -98,10 +98,6 @@ const Dashboard = () => {
           <div className="col-span-1 sm:col-span-2 lg:col-span-3 xl:col-span-2 h-full">
             <MultiCardsInOne
               title="Performance"
-              name="Badr Karrachai."
-              weeklyShippement="10 items"
-              percent="2,15%"
-              totalShippement="2,30K"
             />
           </div>
           <div className="col-span-1 sm:col-span-2 lg:col-span-3 xl:col-span-2 h-full">
