@@ -3,7 +3,13 @@ import { Card, CardBody, CardFooter } from "@nextui-org/card";
 import React from "react";
 import Image from "next/image";
 import { Tab, Tabs } from "@nextui-org/tabs";
-import { ArrowDown, ArrowRight, ArrowUp } from "lucide-react";
+import {
+  ArrowDown,
+  ArrowRight,
+  ArrowUp,
+  TrendingDown,
+  TrendingUp,
+} from "lucide-react";
 import { Avatar, AvatarGroup } from "@nextui-org/avatar";
 import { Button } from "@nextui-org/button";
 import { FC } from "react";
@@ -16,6 +22,7 @@ import {
   ChartTooltipContent,
 } from "@/app/components/common/chart";
 import { Area, CartesianGrid, XAxis, AreaChart } from "recharts";
+import { Progress } from "@nextui-org/progress";
 
 interface MultiCardsInOneProps {
   title: string;
@@ -35,7 +42,7 @@ const MultiCardsInOne = ({ title }: MultiCardsInOneProps) => {
             className="w-full font-medium"
             classNames={{
               cursor: "bg-white dark:bg-gray-200",
-              tabList: "bg-gray-100 ",
+              tabList: "bg-gray-100 dark:bg-gray-50",
             }}
             radius="full"
             fullWidth={true}
@@ -52,12 +59,7 @@ const MultiCardsInOne = ({ title }: MultiCardsInOneProps) => {
               <SmallCard2 />
             </Tab>
             <Tab key="Weekly Sales" title="Weekly Sales">
-              <SmallCard1
-                name="Badr Karrachai."
-                weeklyShippement="10 items"
-                percent="2,15%"
-                totalShippement="2,30K"
-              />
+              <SmallCard3 />
             </Tab>
           </Tabs>
         </CardBody>
@@ -174,7 +176,6 @@ const SmallCard1: FC<SmallCard1Props> = ({
 };
 
 interface SmallCard2Props {}
-
 const SmallCard2: FC<SmallCard2Props> = ({}) => {
   const chartConfig = {
     visitors: {
@@ -431,6 +432,54 @@ const SmallCard2: FC<SmallCard2Props> = ({}) => {
           </div>
         </Card>
       </div>
+    </>
+  );
+};
+
+interface SmallCard3Props {}
+const SmallCard3: FC<SmallCard3Props> = ({}) => {
+  return (
+    <>
+      <Card
+        shadow="sm"
+        className="flex items-center p-4 dark:border dark:border-WaBorderDark dark:bg-slate-200 dark:bg-opacity-10"
+      >
+        <div className="flex flex-col gap-10 w-full">
+          <div className="flex flex-row justify-between items-start">
+            <div className="flex flex-col gap-2">
+              <span className="text-gray-500 font-medium">
+                Active user in countries
+              </span>
+              <h2 className="font-bold text-4xl">5.569k</h2>
+              <span className="text-gray-500 font-medium">
+                User added <span className="font-semibold">695</span> this week
+              </span>
+            </div>
+            <div className="flex flex-row items-center gap-1">
+              <div className="bg-[#D1FADF] dark:bg-opacity-85 px-3 py-2 flex gap-2 rounded-lg items-center mt-2">
+                <TrendingUp className="text-[#05841A] w-6 h-6" />
+                <p className="text-[#05841A]">15,55%</p>
+              </div>
+            </div>
+          </div>
+          <div>
+              <Progress
+                size="md"
+                radius="sm"
+                classNames={{
+                  base: "max-w-lg",
+                  track: "drop-shadow-md border border-default",
+                  indicator: "bg-gradient-to-r from-[#1B9FC8] to-[#A158EE]",
+                  label: "text-gray-800 text-lg",
+                  value: "text-foreground/60",
+                }}
+                label="England"
+                value={65}
+                showValueLabel={true}
+              />
+            </div>
+        </div>
+      </Card>
     </>
   );
 };
