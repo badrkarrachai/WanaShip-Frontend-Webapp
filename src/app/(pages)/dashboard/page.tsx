@@ -1,6 +1,13 @@
 import React from "react";
-import { Card, CardBody, CardFooter } from "@nextui-org/react";
-import { BellRing, CalendarFold, TrendingDown, TrendingUp } from "lucide-react";
+import { Button, Card, CardBody, CardFooter } from "@nextui-org/react";
+import {
+  BellRing,
+  CalendarDays,
+  CalendarFold,
+  Settings2,
+  TrendingDown,
+  TrendingUp,
+} from "lucide-react";
 import { AreaChartHero } from "./chart";
 import DashboardAlert from "./dashboardAlert";
 import MultiCardsInOne from "./multiCardsInOne";
@@ -24,8 +31,8 @@ const Dashboard = () => {
   }
   return (
     <>
-      <div className="space-y-8 ">
-        <div className="flex sm:my-0 my-16 flex-wrap items-center justify-center sm:justify-between gap-4 sm:gap-0">
+      <div className="flex flex-col gap-8">
+        <div className="flex sm:my-0 my-5 flex-wrap items-center justify-center sm:justify-between gap-4">
           <div className="flex flex-col gap-4">
             <h1 className="text-4xl font-medium text-center sm:text-start">
               {getGreeting()}, Badr
@@ -41,6 +48,14 @@ const Dashboard = () => {
               <CalendarFold size={20} />
             </div>
           </div>
+          <div className="flex gap-2">
+            <Button className="py-6 px-6 text-gray-900 clickable-dark bg-[#e6e6e6] font-medium ">
+              <CalendarDays size={20} className="text-gray-600" /> Date
+            </Button>
+            <Button className="py-6 px-0 text-gray-900 clickable-dark bg-[#e6e6e6] font-medium ">
+              <Settings2 size={20} className="text-gray-600" />
+            </Button>
+          </div>
         </div>
         <hr className="w-full h-0  dark:border-WaBorderDark " />
         <DashboardAlert
@@ -48,7 +63,7 @@ const Dashboard = () => {
           description="We have observed a decline on your shipments. Please check your shipments and contact us if you have any questions."
           iconAlert={BellRing}
         />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 xl:gap-8 pb-4 ">
+        <div className="grid grid-cols-1 items-start sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 xl:gap-8  ">
           <DashboardInfoCard
             title="Pending Shipments"
             value="16"
@@ -76,9 +91,11 @@ const Dashboard = () => {
             description="From Jan 01, 2024 - March 30, 2024"
             percentType={false}
             percentValue="2,15"
+            clasName="col-span-1 lg:col-span-3 xl:col-span-1"
           />
-
-          <div className="sm:col-span-2 h-full">
+        </div>
+        <div className="grid grid-cols-1 items-start sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 xl:gap-8 pb-52 ">
+          <div className="col-span-1 sm:col-span-2 lg:col-span-3 xl:col-span-2 h-full">
             <MultiCardsInOne
               title="Performance"
               name="Badr Karrachai."
@@ -87,7 +104,7 @@ const Dashboard = () => {
               totalShippement="2,30K"
             />
           </div>
-          <div className="sm:col-span-2 h-full">
+          <div className="col-span-1 sm:col-span-2 lg:col-span-3 xl:col-span-2 h-full">
             <AreaChartHero />
           </div>
         </div>
@@ -104,6 +121,7 @@ interface DashboardInfoCardProps {
   description: string;
   percentType: boolean;
   percentValue: string;
+  clasName?: string;
 }
 
 const DashboardInfoCard = ({
@@ -112,12 +130,13 @@ const DashboardInfoCard = ({
   description,
   percentType,
   percentValue,
+  clasName,
 }: DashboardInfoCardProps) => {
   return (
-    <Card className=" flex justify-between relative cards-dark ">
+    <Card className={` flex justify-between relative cards-dark ${clasName}`}>
       <CardBody className="p-5 flex flex-row items-start justify-between gap-4 flex-wrap">
         <div className="flex flex-col items-start gap-6">
-          <h1 className="text-base font-medium min-w-[10.5rem]">{title}</h1>
+          <h1 className="font-medium text-lg min-w-[11rem]">{title}</h1>
           <h1 className="text-4xl font-medium ">{value}</h1>
         </div>
         {percentType && (

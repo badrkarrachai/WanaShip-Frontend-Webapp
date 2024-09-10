@@ -98,13 +98,13 @@ const Sidebar = () => {
         <h1
           className={`${
             isSidebarCollapsed ? "hidden" : "block"
-          } font-bold text-xl `}
+          } font-bold text-2xl `}
         >
           WanaShip
         </h1>
 
         <button
-          className="md:hidden px-3 py-3 bg-gray-100 rounded-full hover:bg-blue-100"
+          className="md:hidden px-3 py-3 bg-white border shadow-sm rounded-full hover:bg-blue-100 clickable-dark"
           onClick={toggleSidebar}
         >
           <X className="w-4 h-4" />

@@ -26,7 +26,7 @@ const MultiCardsInOne = ({
     <>
       <Card className="flex gap-4 relative cards-dark w-full p-3">
         <CardBody className="flex flex-col gap-5 p-4 w-full">
-          <h3 className="font-medium text-lg">{title}</h3>
+          <h3 className="font-medium text-lg min-w-[10.5rem]">{title}</h3>
           <Tabs
             aria-label="Options"
             className="w-full font-medium"

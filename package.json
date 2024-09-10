@@ -17,8 +17,9 @@
     "@nextui-org/tabs": "^2.0.35",
     "@nextui-org/theme": "^2.2.9",
     "@reduxjs/toolkit": "^2.2.7",
-    "@remixicon/react": "^4.2.0",
     "axios": "^1.7.7",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
     "cx": "^24.9.2",
     "dotenv": "^16.4.5",
     "framer-motion": "^11.5.4",
@@ -30,10 +31,9 @@
     "recharts": "^2.12.7",
     "redux-persist": "^6.0.0",
     "tailwind-merge": "^2.5.2",
-    "tailwind-variants": "^0.2.1"
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@tailwindcss/forms": "^0.5.9",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

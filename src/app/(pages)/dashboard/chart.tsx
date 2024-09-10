@@ -1,89 +1,90 @@
 "use client";
+import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
+import {
+  ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/app/components/common/chart";
+import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
 
-import { AreaChart } from "@/app/components/common/AreaChart";
-import { Card, CardBody } from "@nextui-org/card";
-
-const chartdata = [
-  {
-    date: "Jan 23",
-    SolarPanels: 2890,
-    Inverters: 2338,
-  },
-  {
-    date: "Feb 23",
-    SolarPanels: 2756,
-    Inverters: 2103,
-  },
-  {
-    date: "Mar 23",
-    SolarPanels: 3322,
-    Inverters: 2194,
-  },
-  {
-    date: "Apr 23",
-    SolarPanels: 3470,
-    Inverters: 2108,
-  },
-  {
-    date: "May 23",
-    SolarPanels: 3475,
-    Inverters: 1812,
-  },
-  {
-    date: "Jun 23",
-    SolarPanels: 3129,
-    Inverters: 1726,
-  },
-  {
-    date: "Jul 23",
-    SolarPanels: 3490,
-    Inverters: 1982,
-  },
-  {
-    date: "Aug 23",
-    SolarPanels: 2903,
-    Inverters: 2012,
-  },
-  {
-    date: "Sep 23",
-    SolarPanels: 2643,
-    Inverters: 2342,
-  },
-  {
-    date: "Oct 23",
-    SolarPanels: 2837,
-    Inverters: 2473,
-  },
-  {
-    date: "Nov 23",
-    SolarPanels: 2954,
-    Inverters: 3848,
-  },
-  {
-    date: "Dec 23",
-    SolarPanels: 3239,
-    Inverters: 3736,
-  },
+export const description = "A multiple line chart";
+const chartData = [
+  { month: "January", desktop: 186, mobile: 100 },
+  { month: "February", desktop: 305, mobile: 200 },
+  { month: "March", desktop: 237, mobile: 120 },
+  { month: "April", desktop: 73, mobile: 190 },
+  { month: "May", desktop: 209, mobile: 130 },
+  { month: "June", desktop: 114, mobile: 180 },
+  { month: "July", desktop: 199, mobile: 120 },
+  { month: "August", desktop: 109, mobile: 190 },
+  { month: "September", desktop: 164, mobile: 140 },
+  { month: "October", desktop: 169, mobile: 120 },
+  { month: "November", desktop: 159, mobile: 130 },
+  { month: "December", desktop: 214, mobile: 140 },
 ];
+const chartConfig = {
+  desktop: {
+    label: "Desktop",
+    color: "#A158EE",
+  },
+  mobile: {
+    label: "Mobile",
+    color: "#1B9FC8",
+  },
+} satisfies ChartConfig;
+export function AreaChartHero() {
+  return (
+    <Card className="h-full max-h-[444px] flex justify-between relative cards-dark pr-5">
+      <CardBody className="flex gap-10 ">
+        <h1 className="font-medium text-lg min-w-[10.5rem] pl-5 pt-5">
+          Transaction activity
+        </h1>
 
-export const AreaChartHero = () => (
-  <Card className=" flex justify-between relative cards-dark">
-    <CardBody className="p-6 flex flex-row items-start justify-between gap-4 flex-wrap">
-      <h1 className="text-base font-base min-w-[10.5rem]">
-        Transaction activity
-      </h1>
-
-      <AreaChart
-        className="h-[26.3rem]"
-        data={chartdata}
-        index="date"
-        categories={["SolarPanels", "Inverters"]}
-        valueFormatter={(number: number) =>
-          `$${Intl.NumberFormat("us").format(number).toString()}`
-        }
-        onValueChange={(v) => console.log(v)}
-        fill="gradient"
-      />
-    </CardBody>
-  </Card>
-);
+        <ChartContainer config={chartConfig}>
+          <LineChart
+            accessibilityLayer
+            data={chartData}
+            margin={{
+              left: 12,
+              right: 12,
+            }}
+          >
+            <CartesianGrid
+              className="stroke-gray-200 stroke-1 dark:stroke-gray-200"
+              vertical={false}
+            />
+            <XAxis
+              dataKey="month"
+              tickLine={false}
+              axisLine={false}
+              tickMargin={8}
+              tickFormatter={(value) => value.slice(0, 3)}
+            />
+            <YAxis
+              tickLine={false}
+              axisLine={false}
+              tickMargin={8}
+              tickFormatter={(value) => `${value}`}
+            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+            <Line
+              dataKey="desktop"
+              type="monotone"
+              stroke="var(--color-desktop)"
+              strokeWidth={2}
+              dot={false}
+            />
+            <Line
+              dataKey="mobile"
+              type="monotone"
+              stroke="var(--color-mobile)"
+              strokeWidth={2}
+              dot={false}
+            />
+          </LineChart>
+        </ChartContainer>
+      </CardBody>
+    </Card>
+  );
+}

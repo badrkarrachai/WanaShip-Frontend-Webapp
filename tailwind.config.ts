@@ -55,7 +55,7 @@ const themes = {
 };
 
 const config: Config = {
-  darkMode: "class",
+  darkMode: ["class"],
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -81,56 +81,114 @@ const config: Config = {
         WaBackground: "#FBFAF8",
         WaBackgroundDark: "#0D0F1B",
       },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
     },
     keyframes: {
       hide: {
-        from: { opacity: "1" },
-        to: { opacity: "0" },
+        from: {
+          opacity: "1",
+        },
+        to: {
+          opacity: "0",
+        },
       },
       slideDownAndFade: {
-        from: { opacity: "0", transform: "translateY(-6px)" },
-        to: { opacity: "1", transform: "translateY(0)" },
+        from: {
+          opacity: "0",
+          transform: "translateY(-6px)",
+        },
+        to: {
+          opacity: "1",
+          transform: "translateY(0)",
+        },
       },
       slideLeftAndFade: {
-        from: { opacity: "0", transform: "translateX(6px)" },
-        to: { opacity: "1", transform: "translateX(0)" },
+        from: {
+          opacity: "0",
+          transform: "translateX(6px)",
+        },
+        to: {
+          opacity: "1",
+          transform: "translateX(0)",
+        },
       },
       slideUpAndFade: {
-        from: { opacity: "0", transform: "translateY(6px)" },
-        to: { opacity: "1", transform: "translateY(0)" },
+        from: {
+          opacity: "0",
+          transform: "translateY(6px)",
+        },
+        to: {
+          opacity: "1",
+          transform: "translateY(0)",
+        },
       },
       slideRightAndFade: {
-        from: { opacity: "0", transform: "translateX(-6px)" },
-        to: { opacity: "1", transform: "translateX(0)" },
+        from: {
+          opacity: "0",
+          transform: "translateX(-6px)",
+        },
+        to: {
+          opacity: "1",
+          transform: "translateX(0)",
+        },
       },
       accordionOpen: {
-        from: { height: "0px" },
-        to: { height: "var(--radix-accordion-content-height)" },
+        from: {
+          height: "0px",
+        },
+        to: {
+          height: "var(--radix-accordion-content-height)",
+        },
       },
       accordionClose: {
         from: {
           height: "var(--radix-accordion-content-height)",
         },
-        to: { height: "0px" },
+        to: {
+          height: "0px",
+        },
       },
       dialogOverlayShow: {
-        from: { opacity: "0" },
-        to: { opacity: "1" },
+        from: {
+          opacity: "0",
+        },
+        to: {
+          opacity: "1",
+        },
       },
       dialogContentShow: {
         from: {
           opacity: "0",
           transform: "translate(-50%, -45%) scale(0.95)",
         },
-        to: { opacity: "1", transform: "translate(-50%, -50%) scale(1)" },
+        to: {
+          opacity: "1",
+          transform: "translate(-50%, -50%) scale(1)",
+        },
       },
       drawerSlideLeftAndFade: {
-        from: { opacity: "0", transform: "translateX(100%)" },
-        to: { opacity: "1", transform: "translateX(0)" },
+        from: {
+          opacity: "0",
+          transform: "translateX(100%)",
+        },
+        to: {
+          opacity: "1",
+          transform: "translateX(0)",
+        },
       },
       drawerSlideRightAndFade: {
-        from: { opacity: "1", transform: "translateX(0)" },
-        to: { opacity: "0", transform: "translateX(100%)" },
+        from: {
+          opacity: "1",
+          transform: "translateX(0)",
+        },
+        to: {
+          opacity: "0",
+          transform: "translateX(100%)",
+        },
       },
     },
   },
@@ -152,6 +210,6 @@ const config: Config = {
     drawerSlideRightAndFade: "drawerSlideRightAndFade 150ms ease-in",
   },
 
-  plugins: [createThemes(themes), nextui(), require("@tailwindcss/forms")],
+  plugins: [createThemes(themes), nextui(), require("tailwindcss-animate")],
 };
 export default config;
