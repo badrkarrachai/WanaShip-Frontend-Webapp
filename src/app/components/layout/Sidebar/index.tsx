@@ -2,6 +2,8 @@
 
 import { useAppDispatch, useAppSelector } from "@/app/redux";
 import { setIsSidebarCollapsed } from "@/state";
+import { Button } from "@nextui-org/button";
+import { Card, CardBody } from "@nextui-org/card";
 import {
   Archive,
   ChevronRight,
@@ -19,6 +21,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import SidebarProSubCard from "./proSubCard";
 
 interface SidebarLinkProps {
   href: string;
@@ -112,10 +115,16 @@ const Sidebar = () => {
       </div>
 
       {/* LINKS */}
-
-      <div className="flex-grow mt-12 gap-16 flex flex-col">
+      <div
+        className={`flex-grow mt-12 ${
+          isSidebarCollapsed ? "gap-5" : "gap-8"
+        } flex flex-col`}
+      >
+        {/* FIRST ROW */}
         <div className=" flex flex-col gap-2">
-          <h3 className="text-gray-600 font-medium px-8 mx-4 mb-1">MAIN</h3>
+          {!isSidebarCollapsed && (
+            <h3 className="text-gray-600 font-medium px-8 mx-4 mb-1">MAIN</h3>
+          )}
           <SidebarLink
             href="/dashboard"
             icon={LayoutDashboard}
@@ -134,10 +143,6 @@ const Sidebar = () => {
             label="Payments"
             isCollapsed={isSidebarCollapsed}
           />
-        </div>
-
-        <div className="flex flex-col gap-2">
-          <h3 className="text-gray-600 font-medium px-8 py-0 mx-4">OTHERS</h3>
           <SidebarLink
             href="/reshippers"
             icon={User}
@@ -151,8 +156,17 @@ const Sidebar = () => {
             isCollapsed={isSidebarCollapsed}
           />
         </div>
+
+        {isSidebarCollapsed && (
+          <hr className="w-7 h-0 border border-solid border-l border-gray-300 ml-[1.10rem] " />
+        )}
+        {/* THIRD ROW */}
         <div className="flex flex-col gap-2">
-          <h3 className="text-gray-600 font-medium px-8 py-0 mx-4">SUPPORT</h3>
+          {!isSidebarCollapsed && (
+            <h3 className="text-gray-600 font-medium px-8 py-0 mx-4">
+              SUPPORT
+            </h3>
+          )}
           <SidebarLink
             href="/settings"
             icon={Settings}
@@ -167,6 +181,9 @@ const Sidebar = () => {
           />
         </div>
       </div>
+
+      {/* PRO SUBSCRIPTION AREA */}
+      <SidebarProSubCard isSidebarCollapsed={isSidebarCollapsed} />
 
       {/* FOOTER */}
       <Image

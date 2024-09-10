@@ -1,6 +1,6 @@
 "use client";
+import { DatePickerWithRange } from "@/app/components/common/dateTimePicker";
 import { Button } from "@nextui-org/button";
-import { DateRangePicker } from "@nextui-org/date-picker";
 import {
   Dropdown,
   DropdownItem,
@@ -55,13 +55,13 @@ const DashboardTopSection: FC<topSectionProps> = ({}) => {
               <DropdownItem key="newReshipper">Reshipper</DropdownItem>
             </DropdownMenu>
           </Dropdown>
-          {/* <DateRangePicker 
-      label="Stay duration" 
-      className="max-w-xs" 
-    /> */}
-          <Button className="py-6 px-6 text-gray-900 clickable-dark bg-[#e6e6e6] font-medium ">
-            <CalendarDays size={20} className="text-gray-600" /> Date
-          </Button>
+          <DatePickerWithRange
+            triggetElement={
+              <Button className="py-6 px-6 text-gray-900 clickable-dark bg-[#e6e6e6] font-medium ">
+                <CalendarDays size={20} className="text-gray-600" /> Date
+              </Button>
+            }
+          />
           <Button className="py-6 px-0 text-gray-900 clickable-dark bg-[#e6e6e6] font-medium ">
             <Settings2 size={20} className="text-gray-600" />
           </Button>
