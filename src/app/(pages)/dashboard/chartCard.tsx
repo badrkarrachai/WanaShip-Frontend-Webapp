@@ -33,20 +33,23 @@ const chartConfig = {
     color: "#1B9FC8",
   },
 } satisfies ChartConfig;
-export function AreaChartHero() {
+export function ChartCard() {
   return (
-    <Card className="h-full max-h-[444px] flex justify-between relative cards-dark pr-5">
+    <Card
+      shadow="sm"
+      className="h-full w-full flex justify-between relative cards-dark  "
+    >
       <CardBody className="flex gap-10 ">
         <h1 className="font-medium text-lg min-w-[10.5rem] pl-5 pt-5">
           Transaction activity
         </h1>
 
-        <ChartContainer config={chartConfig}>
+        <ChartContainer className="sm:ml-0 ml-[-30px]" config={chartConfig}>
           <LineChart
             accessibilityLayer
             data={chartData}
             margin={{
-              left: 12,
+              left: -5,
               right: 12,
             }}
           >
@@ -62,6 +65,7 @@ export function AreaChartHero() {
               tickFormatter={(value) => value.slice(0, 3)}
             />
             <YAxis
+              className="sm:block hidden"
               tickLine={false}
               axisLine={false}
               tickMargin={8}
@@ -72,14 +76,14 @@ export function AreaChartHero() {
               dataKey="desktop"
               type="monotone"
               stroke="var(--color-desktop)"
-              strokeWidth={2}
+              strokeWidth={2.5}
               dot={false}
             />
             <Line
               dataKey="mobile"
               type="monotone"
               stroke="var(--color-mobile)"
-              strokeWidth={2}
+              strokeWidth={2.5}
               dot={false}
             />
           </LineChart>

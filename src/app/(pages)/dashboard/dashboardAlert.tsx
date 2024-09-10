@@ -16,7 +16,10 @@ const DashboardAlert = ({
 }: AlertProps) => {
   return (
     <>
-      <Card className="flex items-center relative cards-dark w-full p-3">
+      <Card
+        shadow="sm"
+        className="flex items-center relative cards-dark w-full p-3"
+      >
         <CardBody className="flex flex-row gap-4 items-center justify-between">
           <div className="flex flex-row gap-4 items-center">
             <div className="p-4 flex-shrink-0 bg-WaBlack rounded-full dark:bg-gray-300">
@@ -27,7 +30,10 @@ const DashboardAlert = ({
               <p className="text-gray-500">{description}</p>
             </div>
           </div>
-          <Button radius="full" className="bg-WaPurple text-WaWhite flex-shrink-0 sm:block hidden">
+          <Button
+            radius="full"
+            className="bg-WaPurple text-WaWhite flex-shrink-0 sm:block hidden"
+          >
             <div className="px-3">View Details</div>
           </Button>
           <ArrowUpRight className="text-gray-500 w-6 h-6 absolute right-0 top-0 sm:hidden block" />

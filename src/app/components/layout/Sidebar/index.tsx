@@ -112,49 +112,60 @@ const Sidebar = () => {
       </div>
 
       {/* LINKS */}
-      <div className="flex-grow mt-12 gap-3 flex flex-col">
-        <SidebarLink
-          href="/dashboard"
-          icon={LayoutDashboard}
-          label="Dashboard"
-          isCollapsed={isSidebarCollapsed}
-        />
-        <SidebarLink
-          href="/inventory"
-          icon={Archive}
-          label="Inventory"
-          isCollapsed={isSidebarCollapsed}
-        />
-        <SidebarLink
-          href="/reshippers"
-          icon={User}
-          label="Reshippers"
-          isCollapsed={isSidebarCollapsed}
-        />
-        <SidebarLink
-          href="/addresses"
-          icon={MapPin}
-          label="Addresses"
-          isCollapsed={isSidebarCollapsed}
-        />
-        <SidebarLink
-          href="/payments"
-          icon={CircleDollarSign}
-          label="Payments"
-          isCollapsed={isSidebarCollapsed}
-        />
-        <SidebarLink
-          href="/settings"
-          icon={Settings}
-          label="Settings"
-          isCollapsed={isSidebarCollapsed}
-        />
-        <SidebarLink
-          href="/support"
-          icon={Headset}
-          label="Support"
-          isCollapsed={isSidebarCollapsed}
-        />
+
+      <div className="flex-grow mt-12 gap-16 flex flex-col">
+        <div className=" flex flex-col gap-2">
+          <h3 className="text-gray-600 font-medium px-8 mx-4 mb-1">MAIN</h3>
+          <SidebarLink
+            href="/dashboard"
+            icon={LayoutDashboard}
+            label="Dashboard"
+            isCollapsed={isSidebarCollapsed}
+          />
+          <SidebarLink
+            href="/inventory"
+            icon={Archive}
+            label="Inventory"
+            isCollapsed={isSidebarCollapsed}
+          />
+          <SidebarLink
+            href="/payments"
+            icon={CircleDollarSign}
+            label="Payments"
+            isCollapsed={isSidebarCollapsed}
+          />
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <h3 className="text-gray-600 font-medium px-8 py-0 mx-4">OTHERS</h3>
+          <SidebarLink
+            href="/reshippers"
+            icon={User}
+            label="Reshippers"
+            isCollapsed={isSidebarCollapsed}
+          />
+          <SidebarLink
+            href="/addresses"
+            icon={MapPin}
+            label="Addresses"
+            isCollapsed={isSidebarCollapsed}
+          />
+        </div>
+        <div className="flex flex-col gap-2">
+          <h3 className="text-gray-600 font-medium px-8 py-0 mx-4">SUPPORT</h3>
+          <SidebarLink
+            href="/settings"
+            icon={Settings}
+            label="Settings"
+            isCollapsed={isSidebarCollapsed}
+          />
+          <SidebarLink
+            href="/support"
+            icon={Headset}
+            label="Support"
+            isCollapsed={isSidebarCollapsed}
+          />
+        </div>
       </div>
 
       {/* FOOTER */}
