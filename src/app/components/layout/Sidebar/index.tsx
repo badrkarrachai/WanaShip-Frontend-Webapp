@@ -81,7 +81,7 @@ const Sidebar = () => {
 
   const sidebarClassNames = `fixed flex flex-col ${
     isSidebarCollapsed ? "w-0 ml-[-1px] md:w-16" : "w-72"
-  } bg-white transition-all duration-300 overflow-hidden h-full shadow-md z-40 bg-opacity-10 backdrop-blur-[23px] sm:backdrop-blur-lg border-r dark:border-WaBorderDark`;
+  } bg-white transition-all duration-300 overflow-hidden h-full shadow-md z-40 bg-opacity-10 backdrop-blur-[35px] sm:backdrop-blur-lg border-r dark:border-WaBorderDark`;
 
   return (
     <div className={sidebarClassNames}>
