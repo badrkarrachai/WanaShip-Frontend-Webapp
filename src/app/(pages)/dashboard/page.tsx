@@ -7,6 +7,7 @@ import DashboardInfoCard from "./infoCard";
 import DashboardTopSection from "./topSection";
 import { Card, CardBody } from "@nextui-org/card";
 import { Tab, Tabs } from "@nextui-org/tabs";
+import TableCard from "./tableCard";
 
 const Dashboard = () => {
   return (
@@ -56,6 +57,9 @@ const Dashboard = () => {
           </div>
           <div className="col-span-1 sm:col-span-2 lg:col-span-3 xl:col-span-2 h-full">
             <ChartCard />
+          </div>
+          <div className="col-span-1 sm:col-span-2 lg:col-span-3 xl:col-span-4 h-full">
+            <TableCard title="Recent Activity" />
           </div>
         </div>
       </div>
