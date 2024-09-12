@@ -8,22 +8,25 @@ import {
   CircleDollarSign,
   Headset,
   LayoutDashboard,
+  LogOut,
   LucideIcon,
   MapPin,
-  Menu,
   Settings,
   User,
+  X,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import SidebarProSubCard from "./proSubCard";
 
 interface SidebarLinkProps {
   href: string;
   icon: LucideIcon;
   label: string;
   isCollapsed: boolean;
+  iconClassName?: string;
 }
 
 const SidebarLink = ({
@@ -31,6 +34,7 @@ const SidebarLink = ({
   icon: Icon,
   label,
   isCollapsed,
+  iconClassName,
 }: SidebarLinkProps) => {
   const pathname = usePathname();
   const isActive =
@@ -54,7 +58,9 @@ const SidebarLink = ({
       }`}
       >
         <Icon
-          className={`w-6 h-6 ${isActive ? "text-WaPurple" : "text-gray-600"}`}
+          className={`w-6 h-6 ${
+            isActive ? "text-WaPurple" : "text-gray-600"
+          } ${iconClassName}`}
         />
 
         <span className={`${isCollapsed ? "hidden" : "block"} font-medium`}>
@@ -76,8 +82,8 @@ const Sidebar = () => {
   };
 
   const sidebarClassNames = `fixed flex flex-col ${
-    isSidebarCollapsed ? "w-0 md:w-16" : "w-72"
-  } bg-white transition-all duration-300 overflow-hidden h-full shadow-md z-40 bg-opacity-40 backdrop-blur-lg border-r dark:border-WaBorderDark`;
+    isSidebarCollapsed ? "w-0 ml-[-1px] md:w-16" : "w-72"
+  } bg-white transition-all duration-300 overflow-hidden h-full shadow-md z-40 bg-opacity-10 backdrop-blur-[35px] sm:backdrop-blur-lg border-r dark:border-WaBorderDark`;
 
   return (
     <div className={sidebarClassNames}>
@@ -97,64 +103,94 @@ const Sidebar = () => {
         <h1
           className={`${
             isSidebarCollapsed ? "hidden" : "block"
-          } font-bold text-xl `}
+          } font-bold text-2xl `}
         >
           WanaShip
         </h1>
 
         <button
-          className="md:hidden px-3 py-3 bg-gray-100 rounded-full hover:bg-blue-100"
+          className="md:hidden px-3 py-3 bg-white border shadow-sm rounded-full hover:bg-blue-100 clickable-dark"
           onClick={toggleSidebar}
         >
-          <Menu className="w-4 h-4" />
+          <X className="w-4 h-4" />
         </button>
       </div>
 
       {/* LINKS */}
-      <div className="flex-grow mt-12 gap-3 flex flex-col">
-        <SidebarLink
-          href="/dashboard"
-          icon={LayoutDashboard}
-          label="Dashboard"
-          isCollapsed={isSidebarCollapsed}
-        />
-        <SidebarLink
-          href="/inventory"
-          icon={Archive}
-          label="Inventory"
-          isCollapsed={isSidebarCollapsed}
-        />
-        <SidebarLink
-          href="/reshippers"
-          icon={User}
-          label="Reshippers"
-          isCollapsed={isSidebarCollapsed}
-        />
-        <SidebarLink
-          href="/addresses"
-          icon={MapPin}
-          label="Addresses"
-          isCollapsed={isSidebarCollapsed}
-        />
-        <SidebarLink
-          href="/payments"
-          icon={CircleDollarSign}
-          label="Payments"
-          isCollapsed={isSidebarCollapsed}
-        />
-        <SidebarLink
-          href="/settings"
-          icon={Settings}
-          label="Settings"
-          isCollapsed={isSidebarCollapsed}
-        />
-        <SidebarLink
-          href="/support"
-          icon={Headset}
-          label="Support"
-          isCollapsed={isSidebarCollapsed}
-        />
+      <div
+        className={`flex-grow mt-9 ${
+          isSidebarCollapsed ? "gap-4" : "gap-4"
+        } flex flex-col`}
+      >
+        {/* FIRST ROW */}
+        <div className=" flex flex-col gap-2">
+          {!isSidebarCollapsed && (
+            <h3 className="text-gray-600 font-medium px-8 mx-4 ">MAIN</h3>
+          )}
+          <SidebarLink
+            href="/dashboard"
+            icon={LayoutDashboard}
+            label="Dashboard"
+            isCollapsed={isSidebarCollapsed}
+          />
+          <SidebarLink
+            href="/inventory"
+            icon={Archive}
+            label="Inventory"
+            isCollapsed={isSidebarCollapsed}
+          />
+          <SidebarLink
+            href="/payments"
+            icon={CircleDollarSign}
+            label="Payments"
+            isCollapsed={isSidebarCollapsed}
+          />
+          <SidebarLink
+            href="/reshippers"
+            icon={User}
+            label="Reshippers"
+            isCollapsed={isSidebarCollapsed}
+          />
+          <SidebarLink
+            href="/addresses"
+            icon={MapPin}
+            label="Addresses"
+            isCollapsed={isSidebarCollapsed}
+          />
+        </div>
+
+        {isSidebarCollapsed && (
+          <hr className="w-7 h-0 border border-solid border-l border-gray-300 ml-[1.10rem] " />
+        )}
+        {/* THIRD ROW */}
+        <div className="flex flex-col gap-2">
+          {!isSidebarCollapsed && (
+            <h3 className="text-gray-600 font-medium px-8 py-0 mx-4">OTHERS</h3>
+          )}
+          <SidebarLink
+            href="/settings"
+            icon={Settings}
+            label="Settings"
+            isCollapsed={isSidebarCollapsed}
+          />
+          <SidebarLink
+            href="/support"
+            icon={Headset}
+            label="Support"
+            isCollapsed={isSidebarCollapsed}
+          />
+          <SidebarLink
+            href="/logout"
+            icon={LogOut}
+            label="Logout"
+            isCollapsed={isSidebarCollapsed}
+            iconClassName="text-red-500"
+          />
+        </div>
       </div>
+
+      {/* PRO SUBSCRIPTION AREA */}
+      <SidebarProSubCard isSidebarCollapsed={isSidebarCollapsed} />
 
       {/* FOOTER */}
       <Image
@@ -169,7 +205,7 @@ const Sidebar = () => {
       <div
         className={`${
           isSidebarCollapsed ? "hidden" : "block"
-        } bg-white  mb-10 cursor-pointer flex p-3 shadow-md justify-between mx-4 rounded-xl items-center light:border-none dark:border dark:border-WaBorderDark dark:bg-slate-50 dark:bg-opacity-10`}
+        } bg-white  mb-9 cursor-pointer flex p-3 shadow-md justify-between mx-4 rounded-xl items-center light:border-none dark:border dark:border-WaBorderDark dark:bg-slate-50 dark:bg-opacity-10`}
       >
         {/* <p className="text-center text-xs text-gray-500">
           &copy; {new Date().getFullYear()} WanaShip
