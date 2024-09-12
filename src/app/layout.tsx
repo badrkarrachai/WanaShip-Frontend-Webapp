@@ -29,6 +29,14 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <meta
+          property="og:image"
+          content="https://imagizer.imageshack.com/img924/8881/61pSaz.png"
+        />
+        <meta
+          property="twitter:image"
+          content="https://imagizer.imageshack.com/img924/8881/61pSaz.png"
+        />
       </head>
       <body className={` ${poppins_init.variable} antialiased poppins`}>
         <Providers>{children}</Providers>
