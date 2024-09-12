@@ -8,7 +8,6 @@ import {
   DropdownTrigger,
 } from "@nextui-org/dropdown";
 import {
-  ArrowBigDown,
   CalendarDays,
   MapPinPlus,
   PackagePlus,
@@ -79,7 +78,9 @@ const DashboardTopSection: FC<topSectionProps> = ({}) => {
                   />
                 }
                 className="flex gap-3"
-              >Address</DropdownItem>
+              >
+                Address
+              </DropdownItem>
               <DropdownItem
                 key="newParcel"
                 startContent={
@@ -89,7 +90,9 @@ const DashboardTopSection: FC<topSectionProps> = ({}) => {
                   />
                 }
                 className="flex gap-3"
-              >Reshipper</DropdownItem>
+              >
+                Reshipper
+              </DropdownItem>
             </DropdownMenu>
           </Dropdown>
           <DatePickerWithRange
