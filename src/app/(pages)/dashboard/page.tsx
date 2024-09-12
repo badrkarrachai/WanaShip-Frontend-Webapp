@@ -5,11 +5,7 @@ import DashboardAlert from "./dashboardAlert";
 import MultiCardsInOne from "./muniCardsInOne";
 import DashboardInfoCard from "./infoCard";
 import DashboardTopSection from "./topSection";
-import { Card, CardBody } from "@nextui-org/card";
-import { Tab, Tabs } from "@nextui-org/tabs";
-import SmallCard1 from "./muniCardsInOne/SmallCard1";
-import SmallCard2 from "./muniCardsInOne/SmallCard2";
-import SmallCard3 from "./muniCardsInOne/SmallCard3";
+import NotificationCard from "./notificationCard";
 
 const Dashboard = () => {
   return (
@@ -60,6 +56,7 @@ const Dashboard = () => {
           <div className="col-span-1 sm:col-span-2 lg:col-span-3 xl:col-span-2 h-full">
             <ChartCard />
           </div>
+          <NotificationCard />
         </div>
       </div>
     </>
