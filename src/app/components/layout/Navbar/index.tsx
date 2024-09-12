@@ -4,8 +4,7 @@ import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/app/redux";
 import { setIsDarkMode, setIsSidebarCollapsed } from "@/state";
 import { Bell, Menu, Moon, Search, Sun } from "lucide-react";
-import NotificationCard from "@/app/(pages)/dashboard/notificationCard";
-
+import React from "react";
 
 const Navbar = () => {
   const dispatch = useAppDispatch();
@@ -46,11 +45,10 @@ const Navbar = () => {
             className="pl-10 pr-4 py-3 w-full border border-gray-300 bg-white rounded-lg focus:outline-none focus:border-WaPurple clickable-dark"
           />
 
-          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-non">
             <Search className="text-gray-500" size={16} />
           </div>
         </div>
-
         <hr className="w-0 h-7 border border-solid border-l border-gray-300 sm:mx-3" />
 
         <div>

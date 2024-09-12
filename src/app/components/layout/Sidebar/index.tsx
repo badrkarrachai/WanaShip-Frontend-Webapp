@@ -2,17 +2,15 @@
 
 import { useAppDispatch, useAppSelector } from "@/app/redux";
 import { setIsSidebarCollapsed } from "@/state";
-import { Button } from "@nextui-org/button";
-import { Card, CardBody } from "@nextui-org/card";
 import {
   Archive,
   ChevronRight,
   CircleDollarSign,
   Headset,
   LayoutDashboard,
+  LogOut,
   LucideIcon,
   MapPin,
-  Menu,
   Settings,
   User,
   X,
@@ -28,6 +26,7 @@ interface SidebarLinkProps {
   icon: LucideIcon;
   label: string;
   isCollapsed: boolean;
+  iconClassName?: string;
 }
 
 const SidebarLink = ({
@@ -35,6 +34,7 @@ const SidebarLink = ({
   icon: Icon,
   label,
   isCollapsed,
+  iconClassName,
 }: SidebarLinkProps) => {
   const pathname = usePathname();
   const isActive =
@@ -58,7 +58,9 @@ const SidebarLink = ({
       }`}
       >
         <Icon
-          className={`w-6 h-6 ${isActive ? "text-WaPurple" : "text-gray-600"}`}
+          className={`w-6 h-6 ${
+            isActive ? "text-WaPurple" : "text-gray-600"
+          } ${iconClassName}`}
         />
 
         <span className={`${isCollapsed ? "hidden" : "block"} font-medium`}>
@@ -81,7 +83,7 @@ const Sidebar = () => {
 
   const sidebarClassNames = `fixed flex flex-col ${
     isSidebarCollapsed ? "w-0 ml-[-1px] md:w-16" : "w-72"
-  } bg-white transition-all duration-300 overflow-hidden h-full shadow-md z-40 bg-opacity-10 backdrop-blur-[23px] sm:backdrop-blur-lg border-r dark:border-WaBorderDark`;
+  } bg-white transition-all duration-300 overflow-hidden h-full shadow-md z-40 bg-opacity-10 backdrop-blur-[35px] sm:backdrop-blur-lg border-r dark:border-WaBorderDark`;
 
   return (
     <div className={sidebarClassNames}>
@@ -116,14 +118,14 @@ const Sidebar = () => {
 
       {/* LINKS */}
       <div
-        className={`flex-grow mt-12 ${
-          isSidebarCollapsed ? "gap-5" : "gap-8"
+        className={`flex-grow mt-9 ${
+          isSidebarCollapsed ? "gap-4" : "gap-4"
         } flex flex-col`}
       >
         {/* FIRST ROW */}
         <div className=" flex flex-col gap-2">
           {!isSidebarCollapsed && (
-            <h3 className="text-gray-600 font-medium px-8 mx-4 mb-1">MAIN</h3>
+            <h3 className="text-gray-600 font-medium px-8 mx-4 ">MAIN</h3>
           )}
           <SidebarLink
             href="/dashboard"
@@ -163,9 +165,7 @@ const Sidebar = () => {
         {/* THIRD ROW */}
         <div className="flex flex-col gap-2">
           {!isSidebarCollapsed && (
-            <h3 className="text-gray-600 font-medium px-8 py-0 mx-4">
-              SUPPORT
-            </h3>
+            <h3 className="text-gray-600 font-medium px-8 py-0 mx-4">OTHERS</h3>
           )}
           <SidebarLink
             href="/settings"
@@ -178,6 +178,13 @@ const Sidebar = () => {
             icon={Headset}
             label="Support"
             isCollapsed={isSidebarCollapsed}
+          />
+          <SidebarLink
+            href="/logout"
+            icon={LogOut}
+            label="Logout"
+            isCollapsed={isSidebarCollapsed}
+            iconClassName="text-red-500"
           />
         </div>
       </div>
@@ -198,7 +205,7 @@ const Sidebar = () => {
       <div
         className={`${
           isSidebarCollapsed ? "hidden" : "block"
-        } bg-white  mb-10 cursor-pointer flex p-3 shadow-md justify-between mx-4 rounded-xl items-center light:border-none dark:border dark:border-WaBorderDark dark:bg-slate-50 dark:bg-opacity-10`}
+        } bg-white  mb-9 cursor-pointer flex p-3 shadow-md justify-between mx-4 rounded-xl items-center light:border-none dark:border dark:border-WaBorderDark dark:bg-slate-50 dark:bg-opacity-10`}
       >
         {/* <p className="text-center text-xs text-gray-500">
           &copy; {new Date().getFullYear()} WanaShip

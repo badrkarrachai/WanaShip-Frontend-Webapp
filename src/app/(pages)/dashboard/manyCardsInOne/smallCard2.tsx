@@ -1,10 +1,7 @@
 "use client";
-import { Card} from "@nextui-org/card";
+import { Card } from "@nextui-org/card";
 import React from "react";
-import {
-  ArrowDown,
-  ArrowUp,
-} from "lucide-react";
+import { ArrowDown, ArrowUp } from "lucide-react";
 import { FC } from "react";
 import {
   ChartConfig,
@@ -124,7 +121,7 @@ const SmallCard2: FC<SmallCard2Props> = ({}) => {
     { date: "2024-06-30", desktop: 446, mobile: 400 },
   ];
 
-  const [timeRange, setTimeRange] = React.useState("90d");
+  const [timeRange, _] = React.useState("90d");
   const filteredData = chartData.filter((item) => {
     const date = new Date(item.date);
     const now = new Date();
@@ -143,7 +140,7 @@ const SmallCard2: FC<SmallCard2Props> = ({}) => {
       <div className="flex flex-col gap-4 items-center w-full ">
         <Card
           shadow="sm"
-          className="flex flex-row justify-between p-5 md:px-10 lg:px-16 items-center w-full dark:border dark:border-WaBorderDark dark:bg-slate-50 dark:bg-opacity-10"
+          className="flex flex-row justify-between p-5 md:px-10 lg:px-16 items-center w-full inner-card-dark"
         >
           <div>
             <span className="text-gray-500 font-medium text-xs">
@@ -170,7 +167,7 @@ const SmallCard2: FC<SmallCard2Props> = ({}) => {
         </Card>
         <Card
           shadow="sm"
-          className="flex p-5 items-center w-full dark:border dark:border-WaBorderDark dark:bg-slate-50 dark:bg-opacity-10"
+          className="flex p-5 items-center w-full inner-card-dark"
         >
           <div className="flex flex-col gap-5 w-full">
             <div className="flex flex-row justify-between items-start">

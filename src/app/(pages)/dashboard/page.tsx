@@ -2,10 +2,14 @@ import React from "react";
 import { BellRing } from "lucide-react";
 import { ChartCard } from "./chartCard";
 import DashboardAlert from "./dashboardAlert";
-import MultiCardsInOne from "./muniCardsInOne";
+import MultiCardsInOne from "./manyCardsInOne";
 import DashboardInfoCard from "./infoCard";
 import DashboardTopSection from "./topSection";
-import NotificationCard from "./notificationCard";
+import { Card, CardBody } from "@nextui-org/card";
+import { Tab, Tabs } from "@nextui-org/tabs";
+import SmallCard1 from "./muniCardsInOne/SmallCard1";
+import SmallCard2 from "./muniCardsInOne/SmallCard2";
+import SmallCard3 from "./muniCardsInOne/SmallCard3";
 
 const Dashboard = () => {
   return (
@@ -56,7 +60,6 @@ const Dashboard = () => {
           <div className="col-span-1 sm:col-span-2 lg:col-span-3 xl:col-span-2 h-full">
             <ChartCard />
           </div>
-          <NotificationCard />
         </div>
       </div>
     </>

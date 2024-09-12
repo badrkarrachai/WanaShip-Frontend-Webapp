@@ -6,7 +6,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/app/components/common/chart";
-import { Card, CardBody, CardFooter, CardHeader } from "@nextui-org/card";
+import { Card, CardBody } from "@nextui-org/card";
 
 export const description = "A multiple line chart";
 const chartData = [
@@ -35,10 +35,7 @@ const chartConfig = {
 } satisfies ChartConfig;
 export function ChartCard() {
   return (
-    <Card
-      shadow="sm"
-      className="h-full w-full flex justify-between relative cards-dark  "
-    >
+    <Card shadow="sm" className="h-full w-full flex  cards-dark relative  ">
       <CardBody className="flex gap-10 ">
         <h1 className="font-medium text-lg min-w-[10.5rem] pl-5 pt-5">
           Transaction activity
