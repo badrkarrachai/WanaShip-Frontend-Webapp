@@ -1,8 +1,10 @@
 "use client";
 import { Card, CardBody } from "@nextui-org/card";
+import { Image } from "@nextui-org/react";
 import { Tab, Tabs } from "@nextui-org/tabs";
 import { X } from "lucide-react";
 import { FC, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface NotificationCardProps {}
 
@@ -12,59 +14,159 @@ const NotificationCard: FC<NotificationCardProps> = ({}) => {
   const handleClose = () => {
     setIsOpen(false);
   };
-
+  const notificationsTestData = [
+    {
+      period: "Today",
+      notifications: [
+        {
+          title: "New Shipment",
+          description: "You have a new shipment",
+          time: "10:00 AM",
+          image:
+            "https://imagizer.imageshack.com/img922/4831/rqmbNX.jpg",
+        },
+      ],
+    },
+    {
+      period: "Older",
+      notifications: [
+        {
+          title: "New Shipment",
+          description: "You have a new shipment",
+          time: "10:00 AM",
+          image:
+            "https://imagizer.imageshack.com/img922/4831/rqmbNX.jpg",
+        },
+        {
+          title: "New Shipment",
+          description: "You have a new shipment",
+          time: "10:00 AM",
+          image:
+            "https://imagizer.imageshack.com/img922/4831/rqmbNX.jpg",
+        },
+      ],
+    },
+    {
+      period: "Older",
+      notifications: [
+        {
+          title: "New Shipment",
+          description: "You have a new shipment",
+          time: "10:00 AM",
+          image:
+            "https://imagizer.imageshack.com/img922/4831/rqmbNX.jpg",
+        },
+        {
+          title: "New Shipment",
+          description: "You have a new shipment",
+          time: "10:00 AM",
+          image:
+            "https://imagizer.imageshack.com/img922/4831/rqmbNX.jpg",
+        },
+      ],
+    },
+  ];
   return (
     <>
-      {isOpen && (
-        <div className="fixed w-[30rem] p-5 bg-black right-0 top-0 flex flex-col gap-5  transition-all duration-300 overflow-hidden h-full shadow-md z-[100] bg-opacity-10 backdrop-blur-[23px] sm:backdrop-blur-lg border-r dark:border-WaBorderDark">
-          <div className="flex justify-end p-2">
-            <X className="cursor-pointer" onClick={handleClose} />
-          </div>
-          <span className="font-semibold text-xl">Notifications</span>
-          <div className="flex flex-col gap-8 relative w-full p-3">
-            <Tabs
-              aria-label="Options"
-              className="w-full font-medium"
-              classNames={{
-                cursor: "bg-white dark:bg-gray-200",
-                tabList: "bg-gray-200 dark:bg-gray-50",
-              }}
-              radius="full"
-              fullWidth={true}
-            >
-              <Tab key="Unread" title="Unread">
-                <div className="flex flex-col gap-6">
-                <NotificationContentCard  notificationTime="Today"/>
-                <NotificationContentCard  notificationTime="Yesterday"/>
-                <NotificationContentCard  notificationTime="Wednesday"/>
-                </div>
-              </Tab>
-              <Tab key="Read" title="Read"></Tab>
-              <Tab key="Archived" title="Archived"></Tab>
-            </Tabs>
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: 480, zIndex: 100 }}
+            animate={{ opacity: 1, x: 0, zIndex: 100 }}
+            exit={{ opacity: 0, x: 480, zIndex: 100 }}
+            transition={{ duration: 0.3 }}
+            className=" sm:block fixed w-full sm:w-[30rem] p-5 bg-black sm:drop-blur-lg right-0 top-0 flex flex-col gap-4 overflow-hidden h-screen shadow-md  bg-opacity-10 backdrop-blur-[35px] sm:backdrop-blur-lg border-r dark:border-WaBorderDark"
+          >
+            <div className="flex justify-between p-2 items-center">
+              <span className="font-semibold text-xl">Notifications</span>
+              <button
+                className="p-2 bg-white border shadow-sm rounded-full hover:bg-blue-100 clickable-dark"
+                onClick={handleClose}
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="flex flex-col gap-6 relative w-full p-3">
+              <Tabs
+                aria-label="Options"
+                className="w-full font-medium"
+                classNames={{
+                  cursor: "bg-white dark:bg-gray-200",
+                  tabList: "bg-gray-200 dark:bg-gray-50",
+                }}
+                radius="full"
+                fullWidth={true}
+              >
+                <Tab key="Unread" title="Unread">
+                  <div className="flex flex-col gap-6">
+                    <NotificationContent
+                        notificationsRespense={notificationsTestData}
+                      />
+                  </div>
+                </Tab>
+                <Tab key="Read" title="Read"></Tab>
+                <Tab key="Archived" title="Archived"></Tab>
+              </Tabs>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
-
-interface NotificationContentCardProps {
-  notificationTime: string;
+interface Notification {
+  title: string;
+  description: string;
+  time: string;
+  image: string;
+}
+interface NotificationsType {
+  period: string;
+  notifications: Notification[];
+}
+interface NotificationContentProps {
+  notificationsRespense: NotificationsType[];
 }
 
-const NotificationContentCard: FC<NotificationContentCardProps> = ({notificationTime}) => {
+const NotificationContent: FC<NotificationContentProps> = ({
+  notificationsRespense,
+}) => {
   return (
     <>
-      <div className="flex flex-col gap-3">
-      <div className="w-full flex justify-between items-center">
-        <span className="font-semibold text-[1rem] text-gray-500">{notificationTime}</span>
-        <span className="font-semibold text-[1rem]">See All</span>
-      </div>
-      <Card className="w-full h-[8rem] bg-opacity-20 dark:bg dark:border-WaBorderDark dark:bg-slate-50 dark:bg-opacity-5" shadow="sm" isPressable={true}>
-
-      </Card>
-      </div>
+      {notificationsRespense.map((notificationRes, i) => (
+        <div key={i} className="flex flex-col gap-3">
+          <span className="font-semibold text-[1rem] text-gray-500">
+            {notificationRes.period}
+          </span>
+          {notificationRes.notifications.map((notification, j) => (
+            <Card
+              key={j}
+              className="w-full h-[8rem] bg-opacity-5 dark:border-WaBorderDark dark:bg-slate-50 dark:bg-opacity-5"
+              shadow="sm"
+              isPressable={true}
+            >
+              <div className="flex p-7 gap-4  w-full relative">
+                <X className="absolute top-3 right-3 cursor-pointer" size={19} />
+                <div className="rounded-full h-2 w-2 bg-WaPurple absolute top-11 left-3"></div>
+                <Image
+                  src={notification.image}
+                  alt="WanaShip-logo"
+                  width={35}
+                  height={35}
+                  className="rounded-small bg-red-500"
+                />
+                <div className="flex flex-col gap-2 items-start">
+                  <h6>
+                    {notification.title}
+                  </h6>
+                  <p className="text-md">{notification.description}</p>
+                  <span className="text-xs text-gray-500">{notification.time}</span>
+                </div>
+              </div>
+            </Card>
+          ))}
+        </div>
+      ))}
     </>
   );
 };

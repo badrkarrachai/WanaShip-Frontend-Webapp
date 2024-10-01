@@ -7,12 +7,14 @@ import { NextUIProvider } from "@nextui-org/react";
 import Sidebar from "./components/layout/Sidebar";
 import Navbar from "./components/layout/Navbar";
 import Background from "./components/layout/Background";
+import NotificationCard from "./(pages)/dashboard/notificationCard";
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const isSidebarCollapsed = useAppSelector(
     (state) => state.global.isSidebarCollapsed
   );
   const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
+  const isNotificationBarCollapsed = useAppSelector((state) => state.global.isNotificationBarCollapsed);
 
   useEffect(() => {
     if (isDarkMode) {
@@ -31,6 +33,8 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       } flex bg-gray-50 text-gray-900 w-full min-h-screen`}
     >
       <Sidebar />
+      {isNotificationBarCollapsed&&<NotificationCard />}
+
       <main className={`flex flex-col w-full h-full z-10 bg-gray-50 `}>
         <Background />
         <div

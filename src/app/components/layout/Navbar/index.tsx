@@ -1,7 +1,7 @@
 "use client";
 
 import { useAppDispatch, useAppSelector } from "@/app/redux";
-import { setIsDarkMode, setIsSidebarCollapsed } from "@/state";
+import { setIsDarkMode, setIsSidebarCollapsed, setNotificationBarCollapsed } from "@/state";
 import { Bell, Menu, Moon, Search, Sun } from "lucide-react";
 import React from "react";
 import WaInput from "../../common/input";
@@ -13,6 +13,7 @@ const Navbar = () => {
     (state) => state.global.isSidebarCollapsed
   );
   const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
+  const isNotificationBarCollapsed = useAppSelector((state) => state.global.isNotificationBarCollapsed);
 
   const toggleSidebar = () => {
     dispatch(setIsSidebarCollapsed(!isSidebarCollapsed));
@@ -21,9 +22,8 @@ const Navbar = () => {
   const toggleDarkMode = () => {
     dispatch(setIsDarkMode(!isDarkMode));
   };
-  const [isOpen, setIsOpen] = React.useState(false);
-  const handleClick = () => {
-    setIsOpen(!isOpen);
+  const toggleNotificationBar = () => {
+    dispatch(setNotificationBarCollapsed(!isNotificationBarCollapsed));
   };
 
   return (
@@ -53,12 +53,12 @@ const Navbar = () => {
           </button>
         </div>
         <div className="relative">
-          <Bell className="cursor-pointer text-gray-500" size={24} onClick={handleClick}/>
+          <Bell className="cursor-pointer text-gray-500" size={24} onClick={toggleNotificationBar}/>
           <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-[0.4rem] py-1 text-xs font-semibold leading-none text-white dark:text-black bg-red-400 rounded-full">
             3
           </span>
         </div>
-        {isOpen&&<NotificationCard />}
+
       </div>
     </div>
   );
