@@ -14,7 +14,7 @@ const Dashboard = () => {
     <>
       <div className="flex flex-col gap-8">
         <DashboardTopSection />
-        <hr className="w-full h-0 dark:border-WaBorderDark " />
+        <hr className="w-full h-0 border border-solid border-l border-gray-300" />
         <DashboardAlert
           title="Parcels in Shipping"
           description="We have observed a decline on your shipments. Please check your shipments and contact us if you have any questions."

@@ -351,7 +351,8 @@ function InnerTable() {
       bottomContentPlacement="outside"
       classNames={{
         wrapper: "max-h-[582px] p-0",
-        th: "dark:bg-[#404355]",
+        sortIcon: "dark:text-black ",
+        th: "dark:bg-[#404355] text-gray-500",
         td: "bg-[#FBFAF8d1d7d8] dark:bg-[#12151f] ",
       }}
       selectedKeys={selectedKeys}
@@ -385,21 +386,14 @@ function InnerTable() {
     </Table>
   );
 }
-
-interface tableCardProps {
-  title: string;
-  clasName?: string;
-}
-
-const TableCard: FC<tableCardProps> = ({ title, clasName }) => {
+const BodyCard: FC = () => {
   return (
     <>
       <Card
         shadow="sm"
-        className={` flex justify-between relative cards-dark ${clasName}`}
+        className={` flex justify-between relative cards-dark `}
       >
-        <CardBody className="p-5 flex flex-row items-start justify-between  gap-4 flex-wrap">
-          <h1 className="font-medium text-lg min-w-[11rem]">{title}</h1>
+        <CardBody className="p-5 flex flex-row items-start justify-between gap-4 flex-wrap">
           <InnerTable />
         </CardBody>
       </Card>
@@ -407,4 +401,4 @@ const TableCard: FC<tableCardProps> = ({ title, clasName }) => {
   );
 };
 
-export default TableCard;
+export default BodyCard;

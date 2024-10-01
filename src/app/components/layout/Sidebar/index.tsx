@@ -13,6 +13,7 @@ import {
   MapPin,
   Settings,
   User,
+  Users,
   X,
 } from "lucide-react";
 import Image from "next/image";
@@ -139,15 +140,15 @@ const Sidebar = () => {
             label="Inventory"
             isCollapsed={isSidebarCollapsed}
           />
-          <SidebarLink
+          {/* <SidebarLink
             href="/payments"
             icon={CircleDollarSign}
             label="Payments"
             isCollapsed={isSidebarCollapsed}
-          />
+          /> */}
           <SidebarLink
             href="/reshippers"
-            icon={User}
+            icon={Users}
             label="Reshippers"
             isCollapsed={isSidebarCollapsed}
           />

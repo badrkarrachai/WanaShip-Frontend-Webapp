@@ -3,14 +3,14 @@
 import * as React from "react";
 import { addDays } from "date-fns";
 import { DateRange } from "react-day-picker";
-
+import { today, getLocalTimeZone } from "@internationalized/date";
 import { cn } from "@/lib/utils";
-import { Calendar } from "@/components/ui/calendar";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
+  RangeCalendar,
+} from "@nextui-org/react";
 
 interface DatePickerProps {
   className?: string;
@@ -28,16 +28,16 @@ export function DatePickerWithRange({
 
   return (
     <div className={cn("grid gap-2", className)}>
-      <Popover>
-        <PopoverTrigger asChild>{triggetElement}</PopoverTrigger>
-        <PopoverContent className="w-auto p-0 mr-9" align="start">
-          <Calendar
-            initialFocus
-            mode="range"
-            defaultMonth={date?.from}
-            selected={date}
-            onSelect={setDate}
-            numberOfMonths={1}
+      <Popover placement="bottom">
+        <PopoverTrigger>{triggetElement}</PopoverTrigger>
+        <PopoverContent className=" p-0">
+          <RangeCalendar
+            aria-label="Date (Uncontrolled)"
+            className="w-full"
+            defaultValue={{
+              start: today(getLocalTimeZone()),
+              end: today(getLocalTimeZone()).add({ weeks: 1 }),
+            }}
           />
         </PopoverContent>
       </Popover>

@@ -76,6 +76,7 @@ const config: Config = {
         WaBrown: "#5D5F0B",
         WaBlack: "#060606",
         WaWhite: "#FDFEFD",
+        WaGold: "#F8B024",
         WaGray: "#98989D",
         WaBorderDark: "#464663",
         WaBackground: "#FBFAF8",

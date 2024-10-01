@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from "@/app/redux";
 import { setIsDarkMode, setIsSidebarCollapsed } from "@/state";
 import { Bell, Menu, Moon, Search, Sun } from "lucide-react";
 import React from "react";
-import WaInput from "../../common/input";
+import WaSearchInput from "../../common/searchInput";
 import NotificationCard from "@/app/(pages)/dashboard/notificationCard";
 
 const Navbar = () => {
@@ -36,7 +36,7 @@ const Navbar = () => {
         >
           <Menu className="w-5 h-5" />
         </button>
-        <WaInput
+        <WaSearchInput
           startContent={<Search className="text-gray-500" size={16} />}
           size="lg"
           palaceholder="Find something: Parcel, Reshippers, ..."
@@ -53,12 +53,16 @@ const Navbar = () => {
           </button>
         </div>
         <div className="relative">
-          <Bell className="cursor-pointer text-gray-500" size={24} onClick={handleClick}/>
+          <Bell
+            className="cursor-pointer text-gray-500"
+            size={24}
+            onClick={handleClick}
+          />
           <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-[0.4rem] py-1 text-xs font-semibold leading-none text-white dark:text-black bg-red-400 rounded-full">
             3
           </span>
         </div>
-        {isOpen&&<NotificationCard />}
+        {isOpen && <NotificationCard />}
       </div>
     </div>
   );
