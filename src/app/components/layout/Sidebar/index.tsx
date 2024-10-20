@@ -180,13 +180,6 @@ const Sidebar = () => {
             label="Support"
             isCollapsed={isSidebarCollapsed}
           />
-          <SidebarLink
-            href="/logout"
-            icon={LogOut}
-            label="Logout"
-            isCollapsed={isSidebarCollapsed}
-            iconClassName="text-red-500"
-          />
         </div>
       </div>
 
