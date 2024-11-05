@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { FC } from "react";
+import MyProfile from "./myProfile";
 
 interface headerCardProps {
   title: string;
@@ -55,16 +56,15 @@ const HeaderCard: FC<headerCardProps> = ({ title }) => {
         </CardHeader>
         <hr className="w-full h-0 dark:border-WaBorderDark my-4 " />
         <CardBody className="pb-8 pl-8 pr-4 flex flex-row flex-wrap gap-4">
-          <div className="flex items-center gap-4 ">
+          <div className="flex items-center gap-4  ">
             <Tabs
               variant={"light"}
               aria-label="Tabs variants"
               classNames={{
                 cursor:
-                  "bg-WaPurple bg-opacity-20 rounded-full !text-WaPurple px-8",
-
+                  "bg-WaPurple bg-opacity-15 dark:bg-WaPurple dark:bg-opacity-15 rounded-full !text-WaPurple px-8 ",
                 tabContent:
-                  "group-data-[selected=true]:text-WaPurple font-medium",
+                  "group-data-[selected=true]:text-WaPurple text-[10pt] font-medium ",
               }}
             >
               <Tab key="myProfile" title="My Profile" />

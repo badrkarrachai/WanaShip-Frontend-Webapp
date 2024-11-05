@@ -64,7 +64,11 @@ const SidebarLink = ({
           } ${iconClassName}`}
         />
 
-        <span className={`${isCollapsed ? "hidden" : "block"} font-medium`}>
+        <span
+          className={`${isCollapsed ? "hidden" : "block"} ${
+            isActive ? "text-WaPurple" : ""
+          } font-medium`}
+        >
           {label}
         </span>
       </div>
